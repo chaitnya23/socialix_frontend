@@ -33,7 +33,8 @@ export default function Login() {
         userName ,password
       })
 
-      console.log(data);
+      console.log("user" ,user);
+      localStorage.setItem("user" ,JSON.stringify(data))
       
       if(data){
         setuser(data);
@@ -51,7 +52,7 @@ export default function Login() {
       //show toast of error
     }
   }
-  console.log(user);
+
 
 
   return (

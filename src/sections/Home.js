@@ -12,7 +12,10 @@ export default function Home() {
     const {user } = useContext(UserContext)
     const navigate = useNavigate();
     
+    
     useEffect(() => {
+       const a = localStorage.getItem("user");
+       console.log(a);
       if(!user.userName){
         navigate('/login');
       }

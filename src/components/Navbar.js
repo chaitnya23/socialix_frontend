@@ -17,6 +17,7 @@ export default function Navbar() {
   const handlelogout = async () => {
     try {
 
+      localStorage.removeItem("user")
        await axios.get('/api/auth/logout');
 
     } catch (error) {

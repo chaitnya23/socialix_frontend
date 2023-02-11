@@ -14,9 +14,11 @@ export default function Home() {
     
     
     useEffect(() => {
-       const a = localStorage.getItem("user");
-       console.log(a);
-      if(!user.userName){
+       
+       console.log("user" ,user);
+      if(!user){
+       console.log("user" ,user);
+
         navigate('/login');
       }
     }, [])

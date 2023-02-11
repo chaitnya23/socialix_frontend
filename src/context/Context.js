@@ -31,7 +31,7 @@ function Context({children}) {
         }
 
         getUser();
-    }, [navigate])
+    }, [navigate ,setuser])
     
     
   return (

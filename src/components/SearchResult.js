@@ -17,7 +17,7 @@ export default function SearchResult({ search ,setdisplayResult }) {
 
             try {
 
-                const { data } = await axios.get(`/api/user/search/${search}`);
+                const { data } = await axios.get(`https://socialix-social-media-backend.vercel.app/api/user/search/${search}`);
                 setusers(data);
 
             } catch (error) {

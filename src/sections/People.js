@@ -20,7 +20,7 @@ export default function People() {
 
             try {
 
-                const { data } = await axios.get(`/api/user/get/all/${user !== undefined ? user._id : ""}`);
+                const { data } = await axios.get(`https://socialix-social-media-backend.vercel.app/api/user/get/all/${user !== undefined ? user._id : ""}`);
                 setusers(data);
 
             } catch (error) {

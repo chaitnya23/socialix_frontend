@@ -41,7 +41,7 @@ export default function Profile() {
 
       try {
 
-        const { data } = await axios.get(`/api/user/${id}`);
+        const { data } = await axios.get(`https://socialix-social-media-backend.vercel.app/api/user/${id}`);
         setthisUser(data);
         setposts(data.Posts);
         setloading(false);

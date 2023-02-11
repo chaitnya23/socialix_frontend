@@ -27,7 +27,7 @@ export default function Requests({ displayRequests }) {
                 })
             )
 
-            const { data } = await axios.post('/api/request/accept', {
+            const { data } = await axios.post('https://socialix-social-media-backend.vercel.app/api/request/accept', {
                 user_id: user._id, person_id: id
             })
 
@@ -50,7 +50,7 @@ export default function Requests({ displayRequests }) {
                 })
             )
 
-            const { data } = await axios.post('/api/request/deny', {
+            const { data } = await axios.post('https://socialix-social-media-backend.vercel.app/api/request/deny', {
                 user_id: user._id, person_id: id
             })
 

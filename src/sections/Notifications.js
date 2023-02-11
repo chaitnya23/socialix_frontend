@@ -20,7 +20,7 @@ export default function Notifications() {
 
       try {
 
-        const { data } = await axios.get(`/api/notification/get/${user && user._id}`)
+        const { data } = await axios.get(`https://socialix-social-media-backend.vercel.app/api/notification/get/${user && user._id}`)
         setnotifications(data.reverse());
 
       } catch (error) {

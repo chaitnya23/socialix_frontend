@@ -66,7 +66,7 @@ export default function Post({ post }) {
     setliked(true);
     try {
 
-      const { data } = await axios.post('/api/post/add/like', {
+      const { data } = await axios.post('https://socialix-social-media-backend.vercel.app/api/post/add/like', {
         user_id: user._id, post_id: post._id
       });
 
@@ -86,7 +86,7 @@ export default function Post({ post }) {
     setliked(false);
     try {
 
-      const { data } = await axios.post('/api/post/dislike', {
+      const { data } = await axios.post('https://socialix-social-media-backend.vercel.app/api/post/dislike', {
         user_id: user._id, post_id: post._id
       });
 
@@ -103,7 +103,7 @@ export default function Post({ post }) {
 
     try {
 
-      const { data } = await axios.post('/api/post/save', {
+      const { data } = await axios.post('https://socialix-social-media-backend.vercel.app/api/post/save', {
         user_id: user._id, post_id: post._id
       })
 
@@ -126,12 +126,12 @@ export default function Post({ post }) {
     }
     try {
 
-      const { data } = await axios.post('/api/post/add/comment', {
+      const { data } = await axios.post('https://socialix-social-media-backend.vercel.app/api/post/add/comment', {
         user_id: user._id,
         post_id: post._id,
         comment: userComment
       })
-     await axios.post('/api/notification/create' ,{creater:user._id ,receiver:post.user._id ,post:post._id ,content:` commented "${userComment}" on your post`})
+     await axios.post('https://socialix-social-media-backend.vercel.app/api/notification/create' ,{creater:user._id ,receiver:post.user._id ,post:post._id ,content:` commented "${userComment}" on your post`})
 
 
       //emmiting notification event

@@ -29,7 +29,7 @@ export default function Login() {
  
     try {
       
-      const {data} = await axios.post("/api/auth/login",{
+      const {data} = await axios.post("https://socialix-social-media-backend.vercel.app/api/auth/login",{
         userName ,password
       })
 

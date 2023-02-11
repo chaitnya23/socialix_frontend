@@ -20,7 +20,7 @@ function PostsSection() {
 
         setloading(true);
 
-        const { data } = await axios.get('/api/post/get');
+        const { data } = await axios.get('https://socialix-social-media-backend.vercel.app/api/post/get');
 
         setposts(data);
         setloading(false);

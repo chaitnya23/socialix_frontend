@@ -23,7 +23,7 @@ export default function PostPreview() {
 
             try {
 
-                const { data } = await axios.get(`/api/post/${id}`);
+                const { data } = await axios.get(`https://socialix-social-media-backend.vercel.app/api/post/${id}`);
                 setpostDetail(data);
                 setpostComments(data.comments.reverse());
 

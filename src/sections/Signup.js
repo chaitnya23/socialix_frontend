@@ -26,7 +26,7 @@ export default function Signup() {
 
     try {
       setloading(true);
-      const {data} = await axios.post('/api/auth/signup' ,userDetails);
+      const {data} = await axios.post('https://socialix-social-media-backend.vercel.app/api/auth/signup' ,userDetails);
 
       setloading(false);
       setuser(data);

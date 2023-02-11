@@ -21,7 +21,7 @@ export default function UserProfileOptions({setdisplayStatus ,person}) {
 
         try {
             
-            const {data} = await axios.post('/api/user/unfriend' ,{
+            const {data} = await axios.post('https://socialix-social-media-backend.vercel.app/api/user/unfriend' ,{
                 user_id:user._id,
                 friend_id:person._id
             })

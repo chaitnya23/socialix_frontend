@@ -27,7 +27,7 @@ export default function Postupload({ setposts, posts }) {
         try {
 
 
-            const { data } = await axios.post('/api/post/create', {
+            const { data } = await axios.post('https://socialix-social-media-backend.vercel.app/api/post/create', {
                 user_id: user._id,
                 image: postState.imgUrl,
                 description: postState.description

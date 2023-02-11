@@ -34,14 +34,14 @@ export default function Login() {
       })
 
       console.log(data);
-      setuser(data);
-
+      
       if(data){
-
+        setuser(data);
+        
         navigate("/");
       }
       //navigate to main page
-
+      
     } catch (error) {
       navigate('/login');
       setuserName("");
@@ -51,6 +51,7 @@ export default function Login() {
       //show toast of error
     }
   }
+  console.log(user);
 
 
   return (

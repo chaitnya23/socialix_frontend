@@ -1,17 +1,12 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react'
-
-
 import { BsFillGrid3X3GapFill, BsThreeDotsVertical } from "react-icons/bs";
-
 import { MdSaveAlt } from "react-icons/md";
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import Loader from '../components/Loader';
 import { AiFillLike } from "react-icons/ai";
 import { FaUserCheck } from "react-icons/fa";
-
 import { MdModeComment } from "react-icons/md";
-
 import { UserContext } from '../context/Context';
 import UserProfileOptions from '../components/UserProfileOptions';
 import Friends from './Friends';

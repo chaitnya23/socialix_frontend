@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import Navbar from '../components/Navbar'
 import NotificationBox from '../components/Notification-box'
 import { UserContext } from '../context/Context';
-import socket from "../utils/socket-io";
+// import socket from "../utils/socket-io";
 
 export default function Notifications() {
 
@@ -14,38 +14,25 @@ export default function Notifications() {
 
 
 
-  useEffect(() => {
-
-    const getNotifications = async () => {
-
-      try {
-
-        const { data } = await axios.get(`https://socialix-social-media-backend.vercel.app/api/notification/get/${user && user._id}`)
-        setnotifications(data.reverse());
-
-      } catch (error) {
-
-        console.log(error);
-      }
-    }
-
-    getNotifications();
-  }, [user])
-
   // useEffect(() => {
 
-  //   socket.on("receive-notification" ,(payload)=>{
+  //   const getNotifications = async () => {
 
-  //     console.log(payload.receiver._id ,id);
-  //     if(payload.receiver._id===id){
-  //           setnotifications([{...payload},...notifications ])
-  //           console.log(notifications);
-  //         }
-  //     })
-  //   } ,[])
+  //     try {
 
+  //       const { data } = await axios.get(`https://socialix-social-media-backend.vercel.app/api/notification/get/${user && user._id}`)
+  //       setnotifications(data.reverse());
 
-  // console.log(notifications);
+  //     } catch (error) {
+
+  //       console.log(error);
+  //     }
+  //   }
+
+  //   getNotifications();
+  // }, [user])
+
+ 
 
   return (
     <>

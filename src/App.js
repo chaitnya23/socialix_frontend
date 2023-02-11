@@ -17,7 +17,7 @@ import Postupload from "./sections/Postupload";
 import PostPreview from "./sections/PostPreview";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import socket from "./utils/socket-io";
+// import socket from "./utils/socket-io";
 import { useEffect, useState ,useContext } from "react";
 import Notifications from "./sections/Notifications";
 import { UserContext } from "./context/Context";
@@ -35,20 +35,19 @@ function App() {
 
   const {user} = useContext(UserContext)
 
-  useEffect(() => {
+  // useEffect(() => {
     
-    socket.on("receive-notification", (payload) => {
-  // console.log(payload);
+  //   socket.on("receive-notification", (payload) => {
   
-      if (payload.receiver._id===user._id) {
-        setToast({
-          display:true,
-          payload
-        })
+  //     if (payload.receiver._id===user._id){
+  //       setToast({
+  //         display:true,
+  //         payload
+  //       })
   
-      }
-    })
-  }, [user])
+  //     }
+  //   })
+  // }, [user])
   
 
   return (

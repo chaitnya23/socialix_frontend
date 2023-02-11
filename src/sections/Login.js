@@ -7,6 +7,7 @@ import axios from 'axios';
 
 import {UserContext} from "../context/Context";
 import { toast } from "react-toastify";
+import Loader from "../components/Loader";
 
 
 
@@ -22,11 +23,13 @@ export default function Login() {
 
   //context
   const {user ,setuser} = useContext(UserContext);
+ 
   
   
   //handle login feature function
   const handleLogin = async()=>{
- 
+    
+    setloading(true);
     try {
       
       const {data} = await axios.post("https://socialix-social-media-backend.vercel.app/api/auth/login",{
@@ -36,6 +39,7 @@ export default function Login() {
       console.log("user" ,user);
       
       if(data){
+        setloading(false);
         localStorage.setItem("user" ,JSON.stringify(data))
         setuser(data);
         
@@ -44,6 +48,8 @@ export default function Login() {
       //navigate to main page
       
     } catch (error) {
+      setloading(false);
+
       navigate('/login');
       setuserName("");
       setpassword("");
@@ -56,8 +62,9 @@ export default function Login() {
 
 
   return (
+<>
+  <Loader loading={loading}/>
 
-  
     <div className="h-screen flex auth-page justify-center align-middle items-center">
 
 
@@ -102,5 +109,6 @@ export default function Login() {
 
     </div>
  
+    </>
   );
 }

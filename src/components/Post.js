@@ -11,7 +11,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import moment from 'moment';
 import PostOptions from "./PostOptions";
-import socket from "../utils/socket-io";
+// import socket from "../utils/socket-io";
 import FloatingNotification from "./FloatingNotification";
 
 
@@ -136,7 +136,7 @@ export default function Post({ post }) {
 
       //emmiting notification event
       console.log(user);
-      socket.emit("create-notification" ,{creater:user ,post:post ,content:` commented "${userComment}" on your post` ,receiver:post.user})
+      //socket.emit("create-notification" ,{creater:user ,post:post ,content:` commented "${userComment}" on your post` ,receiver:post.user})
 
       //notify
       toast.dark(`posted comment to \n${post.user.userName}`);

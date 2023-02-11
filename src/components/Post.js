@@ -131,7 +131,7 @@ export default function Post({ post }) {
         post_id: post._id,
         comment: userComment
       })
-     await axios.post('https://socialix-social-media-backend.vercel.app/api/notification/create' ,{creater:user._id ,receiver:post.user._id ,post:post._id ,content:` commented "${userComment}" on your post`})
+     //await axios.post('https://socialix-social-media-backend.vercel.app/api/notification/create' ,{creater:user._id ,receiver:post.user._id ,post:post._id ,content:` commented "${userComment}" on your post`})
 
 
       //emmiting notification event

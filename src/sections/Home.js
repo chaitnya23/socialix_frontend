@@ -13,7 +13,7 @@ export default function Home() {
     const navigate = useNavigate();
     
     useEffect(() => {
-      if(user=={}){
+      if(!user.userName){
         navigate('/login');
       }
     }, [])

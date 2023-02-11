@@ -33,15 +33,19 @@ export default function Login() {
         userName ,password
       })
 
+      console.log(data);
       setuser(data);
 
-      navigate("/");
+      if(data){
+
+        navigate("/");
+      }
       //navigate to main page
 
     } catch (error) {
+      navigate('/login');
       setuserName("");
       setpassword("");
-      navigate('/login');
       toast.error("wrong password or username !! try again")
       console.log(error.message);
       //show toast of error

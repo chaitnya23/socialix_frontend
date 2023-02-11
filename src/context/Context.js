@@ -24,7 +24,7 @@ function Context({children}) {
             } catch (error) {
                 
                 //navigate to login
-                setuser({})
+              
                 console.log(error.message ,"not authenticated");
                 //navigate("/login")
             }

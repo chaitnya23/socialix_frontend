@@ -34,13 +34,13 @@ function Context({children}) {
               navigate('/login')
             }
             setuser(data);
-            navigate('/')
+            
 
 
         }
 
         getUser();
-    }, [navigate ,setuser])
+    }, [setuser])
     
     
   return (

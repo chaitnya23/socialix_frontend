@@ -1,38 +1,66 @@
-.App {
-  text-align: center;
+
+body{
+  background-color: #ecf4f475;
+  overflow-x: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.auth-page{
+  background: url("../public/bg-img.webp");
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.posts-section{
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+
+}
+
+.posts-section::-webkit-scrollbar{
+  
+    display: none;
+
+}
+
+.people-section{
+  overflow-y: scroll;
+  overflow-x: visible;
+  scroll-behavior: smooth;
+}
+.people-section::-webkit-scrollbar{
+  
+  display: none;
+
+}
+.comment-section::-webkit-scrollbar{
+  
+  display: none;
+}
+
+@media only screen and (max-width:600px) {
+  
+  .profile-box .user-box img{
+    width: 5rem;
+    height: 5rem;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.post-card-info{
+  display: none;
+}
+
+.post-card:hover .post-card-info{
+
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
+.floating-notification-box{
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  animation: float-down .4s ease 0s 1 ;
 }
+ @keyframes float-down {
+
+  from{
+    top: -40px; 
+  }to{
+    top: attr(data-position)px;
+  }
+ }

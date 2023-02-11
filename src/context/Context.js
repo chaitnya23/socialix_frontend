@@ -16,7 +16,7 @@ function Context({children}) {
         const getUser = async()=>{
             try {
                 
-                const {data} = await  axios.get('/api/auth/get');
+                const data  = JSON.parse(localStorage.getItem("user"))
                 setuser(data);
                 console.log(data);
                

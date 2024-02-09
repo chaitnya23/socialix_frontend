@@ -36,7 +36,7 @@ export default function PostDisplayCard({
     const isUserLikedPost = isLiked(Likes, user?._id);
     const isPostSaved = isSavedPost(_id, user)
 
-    const [followStatus, setfollowStatus] = useState(getFollowStatus(user, postOwner));
+    const followStatus = getFollowStatus(user, postOwner);
 
     const { data, mutate: updateLike } = useLikeAndDislikePost(isUserLikedPost, _id, user?._id);
     const { mutate: updateSave } = useSaveAndUnsavePost(isPostSaved, _id, setuser);

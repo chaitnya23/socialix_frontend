@@ -78,13 +78,13 @@ export const getFollowStatus = (user, person) => {
 
         user?.friends.forEach(element => {
             
-            if (element._id === person._id) {
+            if (element === person._id) {
                 status = 'Friends'
 
             }
         });
 
-        person.Requests.forEach(element => {
+        person?.Requests.forEach(element => {
             
             if (element === user._id) {
                 status =  "requested"

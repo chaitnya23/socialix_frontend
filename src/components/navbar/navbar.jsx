@@ -112,9 +112,7 @@ export default function Navbar() {
             <IoIosLogOut size={25} color={COLORS.gray} />
             <p className="text-semibold text hover:text-black" style={{ color: COLORS.gray }} >Log out</p>
           </div>
-          <div className=" w-full h-[15rem] rounded overflow-hidden">
-            <video src={require('../../asset/Socialix-intro-vid.mp4')} autoPlay loop className="w-full h-full" />
-          </div>
+
         </div>
       </div>
     </div>

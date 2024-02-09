@@ -78,9 +78,9 @@ export default function Navbar() {
         <div>
 
           {
-            sidebarLinks.map((link) => {
+            sidebarLinks.map((link,i) => {
               return (
-                <Link to={link.route} onClick={() => setOpenMenu(false)}>
+                <Link to={link.route} onClick={() => setOpenMenu(false)} key={i}>
                   <div className="sidebar-box " >
                     {link.icon}
                     <p className="text-semibold text hover:text-black" style={{ color: COLORS.gray }} >{link.name}</p>
@@ -92,7 +92,7 @@ export default function Navbar() {
           {
             isMobileScreen() ? (
               <Link to={'/friends'} onClick={() => setOpenMenu(false)}>
-                <div className="sidebar-box " onClick={handleLogout} >
+                <div className="sidebar-box "  >
                   <FaUserFriends size={25} color={COLORS.gray} />
                   <p className="text-semibold text hover:text-black" style={{ color: COLORS.gray }} >Friends</p>
                 </div>
@@ -102,7 +102,7 @@ export default function Navbar() {
           {
             isMobileScreen() ? (
               <Link to={'/requests'} onClick={() => setOpenMenu(false)}>
-                <div className="sidebar-box " onClick={handleLogout} >
+                <div className="sidebar-box "  >
                   <p className="text-semibold text hover:text-black" style={{ color: COLORS.gray }} >Requests</p>
                 </div>
               </Link>

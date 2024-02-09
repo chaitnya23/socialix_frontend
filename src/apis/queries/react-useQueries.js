@@ -8,9 +8,8 @@ export const useVerifyUser = (setuser,navigate) => {
 
   const token = localStorage.getItem('token');
 
-  return useQuery(["verify-user"], ()=>verifyUser(token), {
+  return useQuery(["verify-user", token], ()=>verifyUser(token), {
     retry:0,
-    enabled:!!token,
     onSuccess: (data) => {
       setuser(data);
     },
@@ -46,7 +45,9 @@ export const useGetRequests = (id) => {
 
 
 export const useGetUser = (id) => {
-  return useQuery(["user",id], ()=>getUser(id));
+  return useQuery(["user",id], ()=>getUser(id),{
+    enabled:!!id
+  });
 }
 
 export const useGetPolularPosts = () => {

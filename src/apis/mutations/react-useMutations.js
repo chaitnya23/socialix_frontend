@@ -11,12 +11,17 @@ import { toast } from "react-toastify";
 
 
 export const useUserLogin = (setuser,navigate)=>{
+    const queryClient = useQueryClient();
+
     return useMutation(loginUser,{
         retry:2,
         onSuccess:({user,token})=>{
-            setuser(user);
+            
             localStorage.setItem('token',token);
             toast.success(`welcome ${user.userName} 🫂`);
+            queryClient.invalidateQueries(['user', user._id]);
+            // queryClient.invalidateQueries(['verify-user', user._id]);
+
             navigate(routes.home);
             
         },
@@ -28,12 +33,15 @@ export const useUserLogin = (setuser,navigate)=>{
 }
 
 export const useUserSignup = (setuser,navigate)=>{
+
+    const queryClient = useQueryClient();
+
     return useMutation(signupUser,{
         retry:1,
         onSuccess:({data:{user,token}})=>{
             
-            setuser(user);
             localStorage.setItem('token',token);
+            
             toast.success("Sign up successfull");
             navigate(routes.home);
             

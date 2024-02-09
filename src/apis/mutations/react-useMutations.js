@@ -41,6 +41,7 @@ export const useUserSignup = (setuser,navigate)=>{
         onSuccess:({data:{user,token}})=>{
             
             localStorage.setItem('token',token);
+            queryClient.invalidateQueries(['user', user._id]);
             
             toast.success("Sign up successfull");
             navigate(routes.home);

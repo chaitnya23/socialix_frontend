@@ -27,7 +27,7 @@ export default function HomeContainer() {
                 </div>
 
 
-                <div className='w-[35%] md:block none md:-16 mx-6'>
+                <div className='w-[35%] md:block hidden md:-16 mx-6'>
                     <RequestsContainer requests={user && user.Requests} />
                     <FriendsSection friends={user && user.friends} />
                     

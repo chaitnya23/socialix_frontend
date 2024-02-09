@@ -114,7 +114,7 @@ export default function PostDisplayCard({
                 </div>
             </div>
 
-            <div className="my-5 mx-3 max-h-[28rem] min-h-fit rounded-xl overflow-hidden">
+            <div className="my-5 mx-3 max-h-[30rem] min-h-fit rounded-xl overflow-hidden">
                 <img className="w-full h-full  aspect-square" src={image} alt="" />
             </div>
 

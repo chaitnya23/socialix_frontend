@@ -52,7 +52,7 @@ export default function Navbar() {
 
       <div className={`md:block ${openMenu ? "block" : "hidden"} mt-3`}>
 
-        <Link to={`/profile/${user ? user._id : ""}`}>
+        <Link to={`/profile/${user ? user._id : ""}`} >
           <div className="flex gap-5 p-1 rounded-xl item-center my-2  cursor-pointer hover:bg-gray-700">
             <div className="profile-pic w-1/4">
               <img
@@ -80,7 +80,7 @@ export default function Navbar() {
           {
             sidebarLinks.map((link) => {
               return (
-                <Link to={link.route}>
+                <Link to={link.route} onClick={() => setOpenMenu(false)}>
                   <div className="sidebar-box " >
                     {link.icon}
                     <p className="text-semibold text hover:text-black" style={{ color: COLORS.gray }} >{link.name}</p>
@@ -91,7 +91,7 @@ export default function Navbar() {
           }
           {
             isMobileScreen() ? (
-              <Link to={'/friends'}>
+              <Link to={'/friends'} onClick={() => setOpenMenu(false)}>
                 <div className="sidebar-box " onClick={handleLogout} >
                   <FaUserFriends size={25} color={COLORS.gray} />
                   <p className="text-semibold text hover:text-black" style={{ color: COLORS.gray }} >Friends</p>
@@ -101,7 +101,7 @@ export default function Navbar() {
           }
           {
             isMobileScreen() ? (
-              <Link to={'/requests'}>
+              <Link to={'/requests'} onClick={() => setOpenMenu(false)}>
                 <div className="sidebar-box " onClick={handleLogout} >
                   <p className="text-semibold text hover:text-black" style={{ color: COLORS.gray }} >Requests</p>
                 </div>

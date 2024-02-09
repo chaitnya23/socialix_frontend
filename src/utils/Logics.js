@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const isSavedPost = (postId, user) => {
 
-        const match = user?.SavedPosts?.filter((ele)=>ele._id==postId);
+        const match = user?.SavedPosts?.filter((ele)=>ele==postId);
         return match?.length===0?false:true;
 
 }
@@ -14,18 +14,18 @@ export const FollowStatus = (user, person) => {
 
     if (user?.friends && person?.Requests) {
 
-        user?.friends?.forEach(element => {
+        user?.friends?.forEach(friendId => {
 
-            if (element._id === person._id) {
+            if (friendId === person._id) {
 
                 status = 'Friends'
 
             }
         });
 
-        person.Requests.forEach(element => {
+        person.Requests.forEach(personId => {
 
-            if (element._id === user?._id) {
+            if (personId === user?._id) {
                 status = "requested"
 
             }

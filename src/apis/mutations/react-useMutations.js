@@ -96,7 +96,9 @@ export const useSaveAndUnsavePost = (isUserSavedPost, postId,setuser) => {
             onSuccess: ({message}) => {
                 toast.success(message);
                 queryClient.invalidateQueries(["posts"], { exact: true });
-                queryClient.invalidateQueries(["verify-user"], { exact: true });
+                queryClient.invalidateQueries(["user"]);
+                queryClient.invalidateQueries(["verify-user"]);
+
 
             },
             onError:()=>{

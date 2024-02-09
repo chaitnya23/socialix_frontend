@@ -11,6 +11,7 @@ export const addLikeToPostsCache = (queryClient, _id, userId) => {
 
 export const addSaveToPostsCache = (queryClient, postId, setuser) => {
     setuser((prevData) => {
+        console.log({ ...prevData, SavedPosts: [...prevData?.SavedPosts, postId] });
         return { ...prevData, SavedPosts: [...prevData?.SavedPosts, postId] };
     })
 }

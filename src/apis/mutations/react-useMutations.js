@@ -18,7 +18,7 @@ export const useUserLogin = (setuser,navigate)=>{
         onSuccess:({user,token})=>{
             
             localStorage.setItem('token',token);
-            toast.success(`welcome ${user.userName} 🫂`);
+            toast.success(`welcome back  ${user.userName} 🫂`);
             queryClient.invalidateQueries(['user', user._id]);
             // queryClient.invalidateQueries(['verify-user', user._id]);
 
@@ -42,8 +42,10 @@ export const useUserSignup = (setuser,navigate)=>{
             
             localStorage.setItem('token',token);
             queryClient.invalidateQueries(['user', user._id]);
+            queryClient.invalidateQueries(['verify-user', token]);
             
-            toast.success("Sign up successfull");
+            toast.success(`welcome to socialix  ${user.userName} 😌`);
+
             navigate(routes.home);
             
         },

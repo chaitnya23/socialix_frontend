@@ -14,6 +14,7 @@ function Context({ children }) {
   const [user, setuser] = useState(null);
   
   const { data, isError, isLoading } = useVerifyUser(setuser,navigate);
+  
 
   return (
     <UserContext.Provider value={{ user, setuser }}>

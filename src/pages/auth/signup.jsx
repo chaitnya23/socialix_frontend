@@ -55,12 +55,12 @@ export default function SignupContainer({ openLogin }) {
     <>
       <Loader loading={isLoading} />
       <div
-        className="signup-box bg-white shadow-blue-400 shadow-2xl rounded text-white  my-auto md:flex  gap-12 w-[35rem] p-4 h-fit"
+        className="signup-box bg-white shadow-blue-400 shadow-2xl rounded text-white  my-auto md:flex  gap-12 w-[35rem] p-4 mx-6 h-fit"
         style={{ background: COLORS.dark }}
       >
         <div className="inputs  mr-4 my-auto w-full">
           <p
-            className="text-4xl font-bold my-3 text-center"
+            className="md:text-4xl text-3xl font-bold my-3 text-center"
             style={{ color: COLORS.gray }}
           >
             Signup <span style={{ color: COLORS.lightblue }}>&</span> Socialize
@@ -140,7 +140,7 @@ export default function SignupContainer({ openLogin }) {
           <button
             disabled={isLoading}
             onClick={() => handleUserSignup(signupDetails)}
-            className=" my-8 block bg-blue-400 font-bold w-[30%] py-3 rounded-full shadow-lg shadow-blue-500 text-white hover:bg-blue-600  "
+            className=" my-8 block bg-blue-400 font-bold md:w-[30%] w-full py-3 rounded-full shadow-lg shadow-blue-500 text-white hover:bg-blue-600  "
           >
             Sign up
           </button>

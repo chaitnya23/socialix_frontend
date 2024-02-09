@@ -6,11 +6,11 @@ import { routes } from "../../utils";
 
 export const useVerifyUser = (setuser,navigate) => {
 
-  console.log("fnjsdfns");
   const token = localStorage.getItem('token');
 
   return useQuery(["verify-user"], ()=>verifyUser(token), {
     retry:0,
+    enabled:!!token,
     onSuccess: (data) => {
       setuser(data);
     },

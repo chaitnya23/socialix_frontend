@@ -30,15 +30,17 @@ export const useUserLogin = (setuser,navigate)=>{
 export const useUserSignup = (setuser,navigate)=>{
     return useMutation(signupUser,{
         retry:1,
-        onSuccess:({user,token})=>{
+        onSuccess:({data:{user,token}})=>{
+            
             setuser(user);
             localStorage.setItem('token',token);
             toast.success("Sign up successfull");
             navigate(routes.home);
             
         },
-        onError:()=>{
-            toast.error("oops !! error try again ");
+        onError:(e)=>{
+            
+            toast.error(e.response.data?e.response.data.message:"oops !! error try again ");
         }
         
     })

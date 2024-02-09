@@ -12,26 +12,22 @@ export default function LoginContainer({ openSignup }) {
     const navigate = useNavigate();
 
     //context
-    const {setuser} = useContext(UserContext);
+    const { setuser } = useContext(UserContext);
 
     //query api
-    const { data, isLoading, isError, mutate: handleUserLogin } = useUserLogin(setuser,navigate);
+    const { data, isLoading, isError, mutate: handleUserLogin } = useUserLogin(setuser, navigate);
 
     const handleOnChange = (e) => {
         setLogincred({ ...logincred, [e.target.name]: e.target.value });
     }
 
-
-    //loading
-    if(isLoading){
-        return <Loader loading/>
-    }
     return (
         <div className="login-box shadow-blue-400 bg-white shadow-2xl  rounded  md:flex p-2 mx-10 text-white" style={{ background: COLORS.dark }}>
+            <Loader loading={isLoading} />
 
             <div className="inputs ml-4 my-auto p-4">
 
-                <p className="md:text-5xl text-3xl font-bold my-3" style={{ color: COLORS.gray }}>Login <span style={{color:COLORS.lightblue}}>&</span> Socialize</p>
+                <p className="md:text-5xl text-3xl font-bold my-3" style={{ color: COLORS.gray }}>Login <span style={{ color: COLORS.lightblue }}>&</span> Socialize</p>
 
                 <div className="rounded-sm mt-10 w-full border-b-2 border-blue-300 ">
                     <label htmlFor="userName" className="ml-2 font-semibold text-gray-500" style={{ color: COLORS.gray }}>USERNAME</label>
@@ -56,7 +52,7 @@ export default function LoginContainer({ openSignup }) {
                     />
                 </div>
 
-                <button onClick={()=>handleUserLogin(logincred)} className=" my-8  bg-blue-400 font-bold w-[30%] py-3 rounded-full shadow-lg shadow-blue-500 text-white hover:bg-blue-600  ">
+                <button onClick={() => handleUserLogin(logincred)} className=" my-8  bg-blue-400 font-bold md:w-[30%] w-full py-3 rounded-full shadow-lg shadow-blue-500 text-white hover:bg-blue-600  ">
                     Login
                 </button>
                 <div onClick={openSignup} className='cursor-pointer'>

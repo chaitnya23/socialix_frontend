@@ -1,120 +1,63 @@
+import { COLORS } from "./utils";
 import "./App.css";
 import Loader from "./components/Loader";
-import Navbar from "./components/Navbar";
-import Login from "./sections/Login";
-import Menu from "./sections/Menu";
-import Signup from "./sections/Signup";
-import PostsSection from "./sections/PostsSection";
+import { Navbar } from "./components";
+
 import {
   Routes,
   Route,
 } from "react-router-dom";
-import People from "./sections/People";
-import Profile from "./sections/Profile";
 
-import Requests from "./sections/Requests";
-import Postupload from "./sections/Postupload";
-import PostPreview from "./sections/PostPreview";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 // import socket from "./utils/socket-io";
-import { useEffect, useState ,useContext } from "react";
-import Notifications from "./sections/Notifications";
+import { useEffect, useState, useContext } from "react";
+
 import { UserContext } from "./context/Context";
-import FloatingNotification from "./components/FloatingNotification";
-import Home from "./sections/Home";
+
+import { AuthPage, HomeContainer, ExploreContainer, PeopleContainer,ProfileContainer,CreatePageContainer,FriendsSection, RequestsContainer} from "./pages";
+import { isMobileScreen } from "./utils/lib/app-utils";
 
 
 function App() {
 
   const [Toast, setToast] = useState({
-    display:false,
-    payload:{}
+    display: false,
+    payload: {}
   })
-  // const [position, setposition] = useState(0);
 
-  const {user} = useContext(UserContext)
-
-  // useEffect(() => {
-    
-  //   socket.on("receive-notification", (payload) => {
-  
-  //     if (payload.receiver._id===user._id){
-  //       setToast({
-  //         display:true,
-  //         payload
-  //       })
-  
-  //     }
-  //   })
-  // }, [user])
-  
+  const { user } = useContext(UserContext)
 
   return (
+<>
 
-    
-    <div className="">
-    {
-      Toast.display?
-      <FloatingNotification Toast={Toast} setToast={setToast} position={window.pageYOffset}/>:
-      <p className="hidden"></p>
-    }
+    <div className="min-h-screen max-h-fit  md:flex justify-between gap-5" style={{ backgroundColor: COLORS.black }}>
 
+      {/*friends-section*/}
+      <div className="md:w-[18%] p-2 ">
+        <Navbar />
+      </div>
+      <div className="md:w-[75%] ">
       <Routes>
-        <Route path="/login" exact element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/" element={
-          <Home/>
-        } />
+          <Route path="/auth" exact element={<AuthPage />} />
+          <Route path="/" exact element={<HomeContainer />} />
+          <Route path="/explore" exact element={<ExploreContainer />} />
+          <Route path="/people" exact element={<PeopleContainer />} />
+          <Route path="/profile/:id" exact element={<ProfileContainer />} />
+          <Route path="/create-post" exact element={<CreatePageContainer />} />
+          {isMobileScreen() ? <Route path="/friends" exact element={<FriendsSection />} /> : null}
+          {isMobileScreen() ? <Route path="/requests" exact element={<RequestsContainer />} /> : null}
 
 
-        <Route path="/feed" element={
-          <div>
-            <Navbar />
-            <div className="main-container md:grid grid-cols-5 gap-2">
-              <Menu />
+        </Routes>
+      </div>
 
-              <div>
-                <Postupload />
-                <PostsSection />
-              </div>
-
-              <People />
-            </div>
-          </div>
-        } />
-
-        <Route path="/profile/:id" element={
-          <div>
-            <Navbar />
-            <Profile />
-          </div>
-        } />
-
-        <Route path="/requests" element={
-          <div>
-            <Navbar />
-            <Requests />
-          </div>
-        } />
-
-        <Route path="/post/:id" element={
-          <div>
-            <Navbar />
-
-            <PostPreview />
-          </div>
-        } />
-
-        <Route path="/notifications" element={<Notifications />} />
-
-      </Routes>
-
-      <ToastContainer hideProgressBar={true} autoClose={3000} position='top-center' />
+      <ToastContainer hideProgressBar={true} autoClose={2000} position='top-center' />
 
 
     </div>
 
+    </>
   );
 }
 

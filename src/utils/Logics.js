@@ -1,22 +1,10 @@
 import axios from 'axios';
 
 
-export const isSavedPost = (post, user) => {
+export const isSavedPost = (postId, user) => {
 
-    try {
-
-        user.SavedPosts.forEach(ele => {
-
-            if (ele._id === post._id) {
-
-                return true;
-            }
-        });
-
-    } catch (error) {
-
-        return false;
-    }
+        const match = user?.SavedPosts?.filter((ele)=>ele._id==postId);
+        return match?.length===0?false:true;
 
 }
 
@@ -24,9 +12,9 @@ export const FollowStatus = (user, person) => {
 
     var status = "Follow";
 
-    if (user.friends && person.Requests) {
+    if (user?.friends && person?.Requests) {
 
-        user.friends.forEach(element => {
+        user?.friends?.forEach(element => {
 
             if (element._id === person._id) {
 
@@ -37,7 +25,7 @@ export const FollowStatus = (user, person) => {
 
         person.Requests.forEach(element => {
 
-            if (element._id === user._id) {
+            if (element._id === user?._id) {
                 status = "requested"
 
             }
@@ -71,4 +59,40 @@ export const handleFollowClick = async (follow_state ,setfollow_state ,user ,per
     }
 }
 
+export const isLiked = (likes, userId)=>{
+
+    if(likes.length===0) return false;
+
+    for(var i=0;i<likes.length;i++){
+        if(likes[i]===userId) return true;
+    }
+    return false;
+    
+}
+
+export const getFollowStatus = (user, person) => {
+
+    var status = "Follow";
+
+    if( user?.friends && person?.Requests) {
+
+        user?.friends.forEach(element => {
+            
+            if (element._id === person._id) {
+                status = 'Friends'
+
+            }
+        });
+
+        person.Requests.forEach(element => {
+            
+            if (element === user._id) {
+                status =  "requested"
+
+            }
+        });
+    }
+    return status;
+
+}
 

@@ -4,8 +4,52 @@ body{
   overflow-x: hidden;
 }
 
+
+.inner-shadow {
+  box-shadow: inset  2rem 1rem 10px rgba(0, 0, 0, 0.867);
+}
+.no-scrollBar::-webkit-scrollbar {
+  display: none;
+  width: 0;
+}
+.no-scrollBar{
+  overflow: scroll;
+  scrollbar-width: 0;
+}
+.posts-container::-webkit-scrollbar {
+  display: none;
+  width: 0;
+}
+.posts-container{
+  scrollbar-width: 0;
+}
 .auth-page{
-  background: url("../public/bg-img.webp");
+  background: url("./asset/auth-bg.jpg");
+  background-position: center;
+}
+
+.gradient-text{
+  background: linear-gradient(110deg, #4E8AFF, #061f50);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+}
+.auth-page::before{
+  content: "";
+  z-index: 30;
+filter: blur(5px);
+  backdrop-filter: blur(2px); 
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+.login-box,.signup-box{
+  z-index: 100;
 }
 
 .posts-section{

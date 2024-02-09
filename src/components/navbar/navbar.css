@@ -1,0 +1,7 @@
+
+.sidebar-box{
+    @apply cursor-pointer my-8 flex items-center gap-3 p-3 rounded-lg  hover:shadow-lg hover:shadow-blue-400;
+}
+.sidebar-box:hover .icon{
+    @apply text-black
+}

@@ -2,9 +2,5 @@
 @tailwind components;
 @tailwind utilities;
 
-.hover-effect {
-
-    @apply hover:text-blue-400  hover:border-l-4 hover:border-blue-400 hover:shadow-md transition-all duration-150;
-}
 
 

@@ -2,8 +2,8 @@ import { FaUserFriends } from "react-icons/fa"
 import { MdHomeFilled, MdLibraryBooks, MdOutlineAddPhotoAlternate } from "./icons"
 
 export const apiUrls = {
-    base:"http://localhost:4000",
-    // base:"https://socialix-social-media-backend.vercel.app",
+    // base:"http://localhost:4000",
+    base:"https://socialix-social-media-backend.vercel.app",
     login:"/api/auth/login",
     signup:"/api/auth/signup",
     get_post:"/api/post",

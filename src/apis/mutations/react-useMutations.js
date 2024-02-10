@@ -135,7 +135,7 @@ export const useSendFollowRequest = (id) => {
     
     return useMutation(["send-request"], sendRequest,{
         onMutate:(variables)=>{
-            console.log("user id 1: ",id);
+           
             queryClient.setQueryData(["get-new-people", id] ,(prevData)=>{
                 
                 return prevData?.map((ele)=>{
@@ -144,13 +144,21 @@ export const useSendFollowRequest = (id) => {
                     }
                     return ele;
                 })
+            });
+            
+            queryClient.setQueryData(["posts"] ,(prevData)=>{
+                
+                return prevData?.map((ele)=>{
+                    if(ele?.user?._id==variables.person_id){
+                        return {...ele ,user:{...ele?.user,Requests:[...ele?.user?.Requests, variables.user_id]}}
+                    }
+                    return ele;
+                })
             })
 
-            
         },
         onSuccess:(data)=>{
-            console.log("user id success : ",id);
-            
+        
             queryClient.invalidateQueries(["posts"]);
             queryClient.invalidateQueries(["get-new-people" ,id]);
 

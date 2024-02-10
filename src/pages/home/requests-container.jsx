@@ -18,7 +18,7 @@ export default function RequestsContainer() {
       >
         <p className="font-semibold text-xl text-white mb-5">Friend Requests</p>
 
-        <div className="max-h-[25rem] min-h-fit md:grid grid-cols-2 gap-7 overflow-scroll no-scrollBar">
+        <div className="max-h-[25rem] min-h-fit grid grid-cols-2 gap-7 overflow-scroll no-scrollBar">
           {requestsData &&
             requestsData.map((person) => {
               return (
@@ -59,15 +59,15 @@ const RequestCard = ({
 }) => {
   return (
     <div className="mt-8">
-      <div className="user-info flex gap-3 ">
-        <div className="user-dp w-12 h-12 mx-auto">
+      <div className="user-info flex gap-2 justify-start">
+        <div className="user-dp w-12 h-12 ">
           <img
             className="w-full h-full rounded-full object-cover"
             src={profilePic}
             alt=""
           />
         </div>
-        <div className="user-deatils my-auto">
+        <div className="user-deatils ">
           <p className="font-semibold text-md text-white">{userName}</p>
           <p
             className={`font-semibold text-sm `}

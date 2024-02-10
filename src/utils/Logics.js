@@ -23,7 +23,7 @@ export const FollowStatus = (user, person) => {
             }
         });
 
-        person.Requests.forEach(personId => {
+        person?.Requests.forEach(personId => {
 
             if (personId === user?._id) {
                 status = "requested"

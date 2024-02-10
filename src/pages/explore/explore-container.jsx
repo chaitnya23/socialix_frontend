@@ -3,6 +3,7 @@ import { FaHeart } from 'react-icons/fa'
 import { useGetPolularPosts } from '../../apis/queries/react-useQueries'
 import ExplorePostCard from './explore-post-card';
 import { Loader } from '../../components';
+import { Link } from 'react-router-dom';
 
 export default function ExploreContainer() {
 
@@ -17,7 +18,11 @@ export default function ExploreContainer() {
       <div className='md:mx-24 mt-2 p-4  grid md:grid-cols-3 grid-cols-2 gap-12 h-[90vh] no-scrollBar'>
         {
           posts?.map((post, i) => {
-            return <ExplorePostCard {...post} key={i} />
+            return (
+              <Link to={'/post/' + post._id}>
+                <ExplorePostCard {...post} key={i} />
+              </Link>
+            )
           })
         }
 

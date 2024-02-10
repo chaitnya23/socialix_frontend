@@ -12,14 +12,13 @@ export default function CommentsContainer({postId,commentBoxHeight}) {
     return (
         <div className="px-3 mt-3">
             <CommentInputBox postId={postId}/>
-            <div className={`h-[${commentBoxHeight}rem]  no-scrollBar`}>
+            <div className={` no-scrollBar`} style={{height:commentBoxHeight+'rem'}}>
             {
                 commentsData && commentsData.map((ele,i)=>{
 
                     return <CommentMsgCard {...ele} key={i}/>
                 })
             }
-
             </div>
         </div>
     )

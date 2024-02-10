@@ -34,7 +34,7 @@ export default function PostDisplayCard({
 
     const { user, setuser } = useContext(UserContext);
     const isUserLikedPost = isLiked(Likes, user?._id);
-    const isPostSaved = isSavedPost(_id, user)
+    const isPostSaved = isSavedPost(_id, user);
 
     const followStatus = getFollowStatus(user, postOwner);
 
@@ -75,7 +75,7 @@ export default function PostDisplayCard({
                         <div className="user-dp w-12 h-12">
                             <img
                                 className="w-full h-full rounded-full object-cover"
-                                src={!!postOwner.profilePic?postOwner.profilePic:require('../../asset/user-img.png')}
+                                src={!!postOwner.profilePic ? postOwner.profilePic : require('../../asset/user-img.png')}
                                 alt=""
                             />
                         </div>
@@ -87,9 +87,9 @@ export default function PostDisplayCard({
                                 className={`font-semibold text-sm flex items-center gap-1 mt-1`}
                                 style={{ color: COLORS.gray }}
                             >
-                                
+
                                 <div className="flex items-center gap-1">
-                                    <MdLocationOn size={17}/>
+                                    <MdLocationOn size={17} />
                                     <p>{location}</p>
                                 </div>
                             </div>
@@ -114,9 +114,11 @@ export default function PostDisplayCard({
                 </div>
             </div>
 
-            <div className="my-5 mx-3 max-h-[35rem] min-h-fit rounded-xl overflow-hidden">
-                <img className="w-full h-full aspect-square" src={image} alt="" />
-            </div>
+            <Link to={'/post/' + _id}>
+                <div className="my-5 mx-3 max-h-[35rem] min-h-fit rounded-xl overflow-hidden">
+                    <img className="w-full h-full aspect-square" src={image} alt="" />
+                </div>
+            </Link>
 
             {/*post details part*/}
             <PostStatsBox

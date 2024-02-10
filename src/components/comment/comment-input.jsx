@@ -33,7 +33,7 @@ export default function CommentInputBox({ postId }) {
                 onChange={(e) => setComment(e.target.value)}
             />
             <IoMdSend size={25} color={COLORS.gray} onClick={() => {
-                postComment({ user_id: user._id, post_id: postId, comment });
+                postComment({ user_id: user._id, post_id: postId, comment,user });
                 setComment("");
             }} />
         </div>

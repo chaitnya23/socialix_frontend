@@ -3,26 +3,23 @@ import CommentInputBox from "./comment-input";
 import { UserContext } from "../../context/Context";
 import { COLORS } from "../../utils";
 import { useMutation, useQuery } from "react-query";
-import { addComment, getPostComments } from "../../apis";
+import { addComment, getPostComments, useGetComments } from "../../apis";
 
-export default function CommentsContainer({postId}) {
+export default function CommentsContainer({postId,commentBoxHeight}) {
 
-    const {data:commentsData,isLoading,isError} = useQuery(["comments",postId],()=>{
-        return getPostComments(postId);
-    },{
-        staleTime:1000*4*5
-    })
+    const {data:commentsData,isLoading,isError} = useGetComments(postId)
 
     return (
         <div className="px-3 mt-3">
             <CommentInputBox postId={postId}/>
-            <div className="max-h-[30rem] min-h-fit no-scrollBar">
+            <div className={`h-[${commentBoxHeight}rem]  no-scrollBar`}>
             {
                 commentsData && commentsData.map((ele,i)=>{
 
                     return <CommentMsgCard {...ele} key={i}/>
                 })
             }
+
             </div>
         </div>
     )
@@ -35,7 +32,7 @@ const CommentMsgCard = ({user, comment}) => {
         <div className="my-4">
             <div className="flex gap-3 p-1">
 
-                <div className="w-[8%]">
+                <div className="">
                     <div className="user-dp w-12 h-12">
                         <img
                             className="w-full h-full rounded-full object-cover"

@@ -7,6 +7,12 @@ export const addLikeToPostsCache = (queryClient, _id, userId) => {
             return ele;
         })
     })
+
+    queryClient.setQueryData(["get-post",_id], (prevData) => {
+        
+            return { ...prevData, Likes: [...prevData?.Likes, userId] };
+        
+    })
 }
 
 export const addSaveToPostsCache = (queryClient, postId, setuser) => {
@@ -30,6 +36,12 @@ export const removeLikeFromPostsCache = (queryClient, _id, userId) => {
             return ele;
         })
     })
+
+    queryClient.setQueryData(["get-post",_id], (prevData) => {
+        
+        return { ...prevData, Likes: prevData?.Likes?.filter((id)=>id!==userId) };
+    
+})
 }
 
 export const removeSaveFromPostsCache = (queryClient, post_id,setuser) => {

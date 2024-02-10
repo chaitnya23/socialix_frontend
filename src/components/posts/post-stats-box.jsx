@@ -56,7 +56,7 @@ export default function PostStatsBox({ _id, isUserLikedPost, likes, comments, up
             {/*comment section */}
             {
                 displayCommentSection ?
-                    <CommentsContainer postId={_id} /> : null
+                    <CommentsContainer postId={_id} commentBoxHeight={30}/> : null
             }
 
         </div>

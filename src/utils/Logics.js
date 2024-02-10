@@ -61,12 +61,9 @@ export const handleFollowClick = async (follow_state ,setfollow_state ,user ,per
 
 export const isLiked = (likes, userId)=>{
 
-    if(likes.length===0) return false;
-
-    for(var i=0;i<likes.length;i++){
-        if(likes[i]===userId) return true;
-    }
-    return false;
+    const match = likes?.filter((ele)=>ele==userId);
+    return match?.length===0?false:true;
+    
     
 }
 

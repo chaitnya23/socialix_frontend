@@ -15,6 +15,7 @@ export default function PostsContainer() {
       {
         posts?.map((post,i)=>{
           return (
+            
             <PostDisplayCard {...post} key={i}/>
           )
         })

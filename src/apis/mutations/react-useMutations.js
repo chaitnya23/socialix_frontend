@@ -73,6 +73,8 @@ export const useLikeAndDislikePost = (isUserLikedPost, postId, userId) => {
             },
             onSuccess: () => {
                 queryClient.invalidateQueries(["posts"], { exact: true });
+                queryClient.invalidateQueries(["get-post",postId], { exact: true });
+
             },
         }
     )
@@ -111,10 +113,15 @@ export const useSaveAndUnsavePost = (isUserSavedPost, postId,setuser) => {
 export const useAddComment = () => {
 
     const queryClient = useQueryClient();
-
+    
     return useMutation(["post-comment"], addComment, {
-        onSuccess: ({user,comment}, variables) => {
-            toast.success(`commented "${comment}" on ${user.userName}'s post`)
+        onMutate:({post_id,comment,user})=>{
+            queryClient.setQueryData(["comments",post_id],(prevData)=>{
+                return [{user,comment},...prevData];
+            })
+        },
+        onSuccess: ({user,comment,post}, variables) => {
+            toast.success(`commented "${comment}" on ${post.user.userName}'s post`)
             queryClient.invalidateQueries(["comments", variables.post_id]);
         },
         onError:()=>{

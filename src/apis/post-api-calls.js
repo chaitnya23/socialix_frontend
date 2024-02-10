@@ -2,7 +2,8 @@ import axios from "axios";
 import { apiUrls, isLiked } from "../utils"
 
 export const getPost = async(id)=>{
-
+    const {data} =  await axios.get(apiUrls.base+apiUrls.get_post+'/'+id);
+    return data;
 }
 
 export const getAllPosts = async()=>{

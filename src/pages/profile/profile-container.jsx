@@ -20,7 +20,7 @@ export default function ProfileContainer() {
             <div className='rounded-xl p-2 w-3/4 mb-4 mx-auto' >
 
                 <div className='flex gap-5 p-2 rounded-xl item-center my-3  cursor-pointer'>
-                    <div className="profile-pic md:w-1/4 w-[20%]">
+                    <div className="profile-pic md:w-1/4 ">
                         <img className=" md:w-32 md:h-32 w-20 h-20 object-cover rounded-full" src={user && user.profilePic} alt="" />
                     </div>
 
